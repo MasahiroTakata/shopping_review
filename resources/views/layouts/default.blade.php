@@ -12,7 +12,7 @@
 </head>
 <body>
 <header>
-    <h2>Shopping Review</h2>
+<h2><a href="{{ action('ShoppingController@index') }}" class="title">Shopping Review</a></h2>
 </header>
 <div class = 'container'>
   @yield('content')

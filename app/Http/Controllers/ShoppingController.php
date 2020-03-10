@@ -30,12 +30,26 @@ class ShoppingController extends Controller
 
     // カートに保存
     public function cart (Request $request){
-        // dd($request->input('hiddenProductId')); // 商品IDを取得
-        // dd($request->input('quantity')); // 数量を取得
+        // $request->session()->flush(); // データの全削除
+        session()->increment('cart.' . $request->input('hiddenProductId'), $request->input('quantity')); // この書き方で配列に保存してくれる
+        $carts = $request->session()->all(); // 保存したデータを全取得
+        $array = array();
+        
+        foreach ($carts['cart'] as $key => $value){
+            $productInfomation = array();
+            $productDetail = Product::findOrFail($key);
+            $productInfomation = array(
+                'productId'=>$key,
+                'name'=>$productDetail['name'],
+                'price'=>$productDetail['price'],
+                'image'=>$productDetail['image'],
+                'quantity'=>$value
+            );
+            array_push($array, $productInfomation);
+        }
 
-        // Cart::add($hogeProduct->id, $hogeProduct->name, $qty, $hogeProduct->$price, ['hogeOption' => 'huga'])
-        // ->associate(HogeProduct::class);
-        return 'カート画面';
+        return view('cart', [
+            'carts' => $array]
+        );
     }
-
-}
+};
