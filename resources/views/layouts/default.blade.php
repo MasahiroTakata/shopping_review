@@ -12,7 +12,15 @@
 </head>
 <body>
 <header>
-<h2><a href="{{ action('ShoppingController@index') }}" class="title">Shopping Review</a></h2>
+  <div class = "menu">
+    <div class = "title_link">
+      <a href="{{ action('ShoppingController@index') }}" class="a_title">Shopping Review</a>
+    </div>
+    <div class = "user_link">
+      <a href="{{ action('UsersController@index') }}" class="a_title">会員登録</a>
+      <a href="{{ action('ShoppingController@index') }}" class="a_title">ログイン</a>
+    </div>
+  </div>
 </header>
 <div class = 'container'>
   @yield('content')

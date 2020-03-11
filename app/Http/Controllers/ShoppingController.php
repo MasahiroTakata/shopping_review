@@ -9,6 +9,11 @@ use App\Product;
 
 class ShoppingController extends Controller
 {
+    // ログイン・新規登録ボタン作成(default.blade.php)
+    // ユーザ登録画面実装
+    // ログイン画面実装
+    // ログインユーザ名を表示(default.blade.php)
+
     // 商品を一覧表示する
     public function index (){
         $categorys = Category::all(); // 全件抽出
@@ -34,7 +39,7 @@ class ShoppingController extends Controller
         session()->increment('cart.' . $request->input('hiddenProductId'), $request->input('quantity')); // この書き方で配列に保存してくれる
         $carts = $request->session()->all(); // 保存したデータを全取得
         $array = array();
-        
+
         foreach ($carts['cart'] as $key => $value){
             $productInfomation = array();
             $productDetail = Product::findOrFail($key);
