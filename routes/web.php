@@ -22,4 +22,7 @@ Route::get('/shopping', 'ShoppingController@index'); // 商品一覧
 Route::get('/shopping/{id}', 'ShoppingController@show'); // 商品詳細
 Route::post('/shopping/cart', 'ShoppingController@cart'); // カート
 Route::get('/users/register', 'UsersController@index'); // ユーザ新規登録
-Route::post('/shopping/login', 'ShoppingController@login'); // ログイン
+Route::post('/users/confirm', 'UsersController@confirm'); // 登録確認（ユーザ）
+Route::post('/users/complete', 'UsersController@complete'); // ユーザ登録完了（コントローラー内で登録処理を行うのでgetを使う）
+Route::get('/users/login', 'UsersController@login'); // ログイン
+Route::post('/users/logincomplete', 'UsersController@logincomplete'); // ログイン完了

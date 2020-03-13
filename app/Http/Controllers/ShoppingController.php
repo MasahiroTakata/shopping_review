@@ -9,8 +9,6 @@ use App\Product;
 
 class ShoppingController extends Controller
 {
-    // ログイン・新規登録ボタン作成(default.blade.php)
-    // ユーザ登録画面実装
     // ログイン画面実装
     // ログインユーザ名を表示(default.blade.php)
 
