@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use IlluminateDatabaseEloquentModel;
-use Auth; // ユーザ認証のライブラリ
 
 class UsersController extends Controller
 {
@@ -35,10 +34,11 @@ class UsersController extends Controller
         $userRegister->address1 = $request->address1;
         $userRegister->address2 = $request->address2;
         $userRegister->password = $request->password;
-
         $userRegister->save();
 
-        return view('complete');
+        session()->put(['userId' => $userRegister->id, 'userName' => $userRegister->name]); // セッションに保存する。
+        $s_name = session()->get('userName');
+        return view('complete', ['loginUser' => $s_name]); // ユーザ登録完了画面へ
     }
 
     public function login (){
@@ -52,8 +52,8 @@ class UsersController extends Controller
         ]);
 
         $userCheck = new User();
-        $userCheck = User::where('email',$request->input('email'))->where('password',$request->input('password'))->exists();
-        // return $userCheck;
+        $userCheck = User::where('email',$request->input('email'))->where('password',$request->input('password'))->exists(); // ユーザが存在するかどうかのチェック
+
         if($userCheck){
             $userInfo = User::where('email',$request->input('email'))->where('password',$request->input('password'))->pluck("name","id");
             foreach( $userInfo as $key => $value ){
@@ -62,10 +62,13 @@ class UsersController extends Controller
                 $s_name = session()->get('userName');
             }
             return view('logincomplete', ['loginUser' => $s_name]); // ログイン完了画面へ
-            // return view('logincomplete', ['userDetail' => $userDetail]); // ログイン完了画面へ
         } else{
-            return "違います";
-            // return redirect()->back(); // ログイン画面に戻る
+            return redirect()->back(); // ログイン画面に戻る
         }
+    }
+
+    public function logout (){
+        session()->flush();
+        return view('logout');
     }
 }

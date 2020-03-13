@@ -3,6 +3,11 @@
 @section('css')
 @section('content')
   @csrf
-  <label>登録しました。</label><br><br>
-  <label>こんにちは！！（ログインユーザー名）さん</label>
+  <label>ありがとうございます。登録しました。</label><br>
+  <label>こんにちは！！
+  @if (isset ($loginUser))
+    {{$loginUser}}さん！
+  @endif
+  </label><br>
+  <a href="{{ action('ShoppingController@index') }}">買い物を続ける</a>
 @endsection

@@ -6,7 +6,7 @@
   <label>ログインしました。</label><br><br>
   <label>こんにちは！！
   @if (isset ($loginUser))
-    {{$loginUser}}
+    {{$loginUser}}さん！
   @endif
   さん</label><br><br>
   <button type="submit" class="btn btn-primary">買い物を続ける</button>
