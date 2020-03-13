@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request; // POST送信する際に必要
 
@@ -20,6 +19,15 @@ Route::get('/', function () { // Laravelの初期画面
 
 Route::get('/shopping', 'ShoppingController@index'); // 商品一覧
 Route::get('/shopping/{id}', 'ShoppingController@show'); // 商品詳細
-Route::post('/shopping/cart', 'ShoppingController@cart'); // カート
+Route::get('/shopping/lookingCart', 'ShoppingController@lookingCart'); // カートを見る
+Route::post('/shopping/cart', 'ShoppingController@cart'); // カートに保存
+
 Route::get('/users/register', 'UsersController@index'); // ユーザ新規登録
-Route::post('/shopping/login', 'ShoppingController@login'); // ログイン
+Route::post('/users/confirm', 'UsersController@confirm'); // 登録確認（ユーザ）
+Route::post('/users/complete', 'UsersController@complete'); // ユーザ登録完了（コントローラー内で登録処理を行うのでgetを使う）
+Route::get('/users/login', 'UsersController@login'); // ログイン
+Route::get('/users/logout', 'UsersController@logout'); // ログアウト
+Route::post('/users/logincomplete', 'UsersController@logincomplete'); // ログイン完了
+
+Route::get('/buying/buyComfirm', 'BuyingController@index'); // 購入手続き
+Route::get('/buying/buyingComplete', 'BuyingController@buyingComplete'); // 購入完了

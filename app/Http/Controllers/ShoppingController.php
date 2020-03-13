@@ -9,16 +9,10 @@ use App\Product;
 
 class ShoppingController extends Controller
 {
-    // ログイン・新規登録ボタン作成(default.blade.php)
-    // ユーザ登録画面実装
-    // ログイン画面実装
-    // ログインユーザ名を表示(default.blade.php)
-
     // 商品を一覧表示する
     public function index (){
         $categorys = Category::all(); // 全件抽出
         $products = Product::all();
-
         // dd($products->ToArray()); // デバッグ用コード（Dump Dieの略らしい）で、この処理以降の処理は行わない
         return view ('index', [
             'categorys' => $categorys,
@@ -56,5 +50,29 @@ class ShoppingController extends Controller
         return view('cart', [
             'carts' => $array]
         );
+    }
+
+    // カートをみる
+    public function lookingCart (){
+        return "こんにちは";
+        // $carts = $request->session()->all(); // 保存したデータを全取得
+        // $array = array();
+
+        // foreach ($carts['cart'] as $key => $value){
+        //     $productInfomation = array();
+        //     $productDetail = Product::findOrFail($key);
+        //     $productInfomation = array(
+        //         'productId'=>$key,
+        //         'name'=>$productDetail['name'],
+        //         'price'=>$productDetail['price'],
+        //         'image'=>$productDetail['image'],
+        //         'quantity'=>$value
+        //     );
+        //     array_push($array, $productInfomation);
+        // }
+
+        // return view('cart', [
+        //     'carts' => $array]
+        // );
     }
 };

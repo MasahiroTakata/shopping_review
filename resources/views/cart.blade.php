@@ -17,4 +17,7 @@
       </div>
       @endforeach
     @endif
+
+    <a href="{{ action('ShoppingController@index') }}">買い物を続ける</a>
+    <a href="{{ action('BuyingController@index') }}">購入手続きへ</a>
 @endsection
