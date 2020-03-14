@@ -9,6 +9,6 @@
     {{$loginUser}}さん！
   @endif
   さん</label><br><br>
-  <button type="submit" class="btn btn-primary">買い物を続ける</button>
-  <button type="submit" class="btn btn-primary">購入手続きへ</button>
+  <a href = "{{ action('ShoppingController@index') }}">買い物を続ける</button>
+  <a href = "{{ action('BuyingController@index') }}">購入手続きへ</button>
 @endsection

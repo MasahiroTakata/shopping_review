@@ -10,7 +10,6 @@ use App\Order;
 
 class BuyingController extends Controller
 {
-    // 購入手続き
     public function index (){
         $userCarts = session()->all(); // 保存したデータを全取得
         $carts = array();
@@ -18,6 +17,7 @@ class BuyingController extends Controller
         foreach ($userCarts['cart'] as $key => $value){
             $productInfomation = array();
             $productDetail = Product::findOrFail($key);
+
             $productInfomation = array(
                 'productId'=>$key,
                 'name'=>$productDetail['name'],
@@ -25,6 +25,7 @@ class BuyingController extends Controller
                 'image'=>$productDetail['image'],
                 'quantity'=>$value
             );
+            
             array_push($carts, $productInfomation);
         }
 
@@ -39,14 +40,19 @@ class BuyingController extends Controller
 
     // 購入完了
     public function buyingComplete (){
-        $newOrder = new Order();
         $userCarts = session()->all();
-        
-        $newOrder->user_id = $request->name;
-        $newOrder->product_id = $request->email;
-        $newOrder->quantity = $request->address1;
-        $newOrder->save();
+        $userId = $userCarts['userId'];
 
-        return '注文ありがとうございます！!';
+        foreach ($userCarts['cart'] as $key => $value){
+            $newOrder = new Order();
+            $newOrder->user_id = $userId;
+            $newOrder->product_id = $key;
+            $newOrder->quantity = $value;
+            $newOrder->save();
+        }
+
+        session()->forget('cart');
+
+        return view('buyingComplete');
     }
 }
