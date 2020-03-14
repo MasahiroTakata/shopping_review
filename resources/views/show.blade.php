@@ -23,8 +23,8 @@
         @endfor
         </select>
         </li>
-        <li><button type="submit" id="cartIn" name="cartIn">カートに入れる</button></li>
-      @else 
+        <li><input type="submit" id="cartIn" name="cartIn" value="カートに入れる"></li>
+      @else
         <li><h3 id = "delete_yes">在庫：すみません、ないです。</h3></li>
       @endif
     </ul>

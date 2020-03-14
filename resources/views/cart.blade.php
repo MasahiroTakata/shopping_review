@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="{{ asset('css/cart.css') }}">
 @endsection
 @section('content')
+  @csrf
   {{ csrf_field() }}
     @if (isset ($carts))
       @foreach ($carts as $cart)

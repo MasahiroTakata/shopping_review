@@ -19,8 +19,10 @@ Route::get('/', function () { // Laravelの初期画面
 
 Route::get('/shopping', 'ShoppingController@index'); // 商品一覧
 Route::get('/shopping/{id}', 'ShoppingController@show'); // 商品詳細
-Route::get('/shopping/lookingCart', 'ShoppingController@lookingCart'); // カートを見る
+
 Route::post('/shopping/cart', 'ShoppingController@cart'); // カートに保存
+
+Route::get('/shopping/cart', 'ShoppingController@cartcheck'); // カート
 
 Route::get('/users/register', 'UsersController@index'); // ユーザ新規登録
 Route::post('/users/confirm', 'UsersController@confirm'); // 登録確認（ユーザ）
