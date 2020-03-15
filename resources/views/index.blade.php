@@ -1,7 +1,6 @@
 @extends('layouts.default')
 @section('title', 'Shopping Review')
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/index.css') }}">
 @endsection
 @section('content')
 <div class = 'content'>
