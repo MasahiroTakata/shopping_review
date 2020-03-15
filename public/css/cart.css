@@ -1,10 +1,27 @@
-.cart_box{
+.cartScreen{
   width: 100%;
+}
+
+.boxs{
+  width: 70%;
+  float: left;
+}
+.cart_box{
+  padding-left: 30px;
   display: flex;
 }
-.ul{
+.productDetail{
+  margin-left: 100px;
+  padding-top: 30px;
 }
 
-.li{
+.detailList{
+  padding-top: 20px;
+}
+.menu_box{
+  padding-top: 20px;
+}
 
+#buyConfirm{
+  padding-left: 20px;
 }

@@ -9,13 +9,6 @@ use App\Product;
 
 class ShoppingController extends Controller
 {
-    // やる事
-        // ログイン完了後の買い物を続けるボタン（完了）
-        // ログイン完了後の購入手続きのボタン（後回し）
-        // カートを見るボタンの実装（完了）
-        // deflult.blade.phpの改行（完了）
-        // 商品一覧の改行
-
     // 商品を一覧表示する
     public function index (){
         $categorys = Category::all(); // 全件抽出
@@ -41,7 +34,8 @@ class ShoppingController extends Controller
         }
 
         $carts = session()->all(); // 保存したデータを全取得
-        $array = array();
+        $array = array(); // viewに渡す為の配列
+        $sum = 0; // 合計金額
 
         foreach ($carts['cart'] as $key => $value){
             $productInfomation = array();
@@ -55,35 +49,15 @@ class ShoppingController extends Controller
                 'quantity'=>$value
             );
 
+            $pQuantity = $productDetail['price'] * $value;
+            $sum += $pQuantity;
             array_push($array, $productInfomation);
         }
 
         return view('cart', [
-            'carts' => $array]
+            'carts' => $array,
+            'sum' => $sum
+            ]
         );
-    }
-
-    // カートをみる
-    public function lookingCart (){
-        return "こんにちは";
-        // $carts = $request->session()->all(); // 保存したデータを全取得
-        // $array = array();
-
-        // foreach ($carts['cart'] as $key => $value){
-        //     $productInfomation = array();
-        //     $productDetail = Product::findOrFail($key);
-        //     $productInfomation = array(
-        //         'productId'=>$key,
-        //         'name'=>$productDetail['name'],
-        //         'price'=>$productDetail['price'],
-        //         'image'=>$productDetail['image'],
-        //         'quantity'=>$value
-        //     );
-        //     array_push($array, $productInfomation);
-        // }
-
-        // return view('cart', [
-        //     'carts' => $array]
-        // );
     }
 };

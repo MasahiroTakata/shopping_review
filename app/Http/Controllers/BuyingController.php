@@ -13,6 +13,7 @@ class BuyingController extends Controller
     public function index (){
         $userCarts = session()->all(); // 保存したデータを全取得
         $carts = array();
+        $sum = 0; // 合計金額
 
         foreach ($userCarts['cart'] as $key => $value){
             $productInfomation = array();
@@ -25,7 +26,9 @@ class BuyingController extends Controller
                 'image'=>$productDetail['image'],
                 'quantity'=>$value
             );
-            
+
+            $pQuantity = $productDetail['price'] * $value;
+            $sum += $pQuantity;
             array_push($carts, $productInfomation);
         }
 
@@ -34,7 +37,8 @@ class BuyingController extends Controller
         // return session()->all();
         return view('buyingConfirm', [
             'carts' => $carts,
-            'loginuser' => $userDetail
+            'loginuser' => $userDetail,
+            'sum' => $sum,
         ]);
     }
 
@@ -51,7 +55,7 @@ class BuyingController extends Controller
             $newOrder->save();
         }
 
-        session()->forget('cart');
+        session()->forget('cart'); // カートの情報のみ削除する
 
         return view('buyingComplete');
     }
