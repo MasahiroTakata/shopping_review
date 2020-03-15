@@ -23,8 +23,12 @@ class ShoppingController extends Controller
     // 商品の詳細情報を表示
     public function show ($id){
         $productDetail = Product::findOrFail($id); // 見つからなかったら例外を返す処理を行ってくれる
+        $categoryProducts = Product::where('category_id',$productDetail["category_id"])->whereNotIn('id',[$id])->get(); // 関連商品も取得（対象商品と同カテゴリー）
 
-        return view('show', ['productDetail' => $productDetail]);
+        return view('show', [
+            'productDetail' => $productDetail,
+            'categoryProducts' => $categoryProducts,
+        ]);
     }
 
     // カートに保存・中身の確認

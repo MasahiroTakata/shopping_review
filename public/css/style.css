@@ -26,12 +26,12 @@ header{
 }
 
 .no_user{
-  line-height: 100px;
+  padding-top: 30px;
   padding-right: 100px;
 }
 .menu_title{
-  line-height: 100px;
   padding-left: 100px;
+  padding-top: 30px;
 }
 
 .menu_user{
@@ -103,8 +103,7 @@ a:hover::after{
   background-color: white;
   margin-left: auto;
   margin-right: auto;
-  overflow: auto;
-  /*display: flex;*/
+  overflow: auto; /* スクロール */
 }
 
 .products{

@@ -27,6 +27,11 @@
         <li class = "detailList"><h3 id = "delete_yes">在庫：すみません、ないです。</h3></li>
       @endif
     </ul>
-  </div></br>
+  </div>
+  <div class="relatedProducts">
+    @foreach ($categoryProducts as $product)
+      <a href="{{ action('ShoppingController@show', $product->id) }}" class="a_relatedProduct"><img src="{{ $product->image }}" height="150px" width="150px"></a>
+    @endforeach
+  </div>
 </form>
 @endsection
