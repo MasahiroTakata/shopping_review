@@ -14,7 +14,7 @@
 <header>
   <div class = "menu">
     <div class = "menu_title">
-      <a href="{{ action('ShoppingController@index') }}" class="a_title">Shopping Review</a>
+      <p><a href="{{ action('ShoppingController@index') }}" class="a_title">Shopping Review</a></p>
     </div>
     @if(session()->has('userName'))
       <form action="{{ url('/shopping/cart') }}" method="post" name="lookCart" id="lookCart" class="menu_user">

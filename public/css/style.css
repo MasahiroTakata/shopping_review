@@ -63,6 +63,28 @@ header{
   font-size: 20px;
 }
 
+a{
+  position: relative;
+  display: inline-block;
+  transition: .3s;
+}
+
+a::after {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  content: '';
+  width: 0;
+  height: 2px;
+  background-color: white;
+  transition: .3s;
+  transform: translateX(-50%);
+}
+
+a:hover::after{
+  width: 100%;
+}
+
 .user_link{
   margin-right: 100px;
   height: 100%;
@@ -95,6 +117,12 @@ header{
   height: 300px;
   width: 300px;
   margin-left: 10px;
+}
+
+.productImage:hover{
+  box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
+  transform: translateY(-10px);
+  transition-duration: 0.5s;
 }
 
 footer{
