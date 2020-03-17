@@ -3,6 +3,8 @@
 @section('css')
   <link rel="stylesheet" href="{{ asset('css/show.css') }}">
 @endsection
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="{{ asset('js/show.js') }}"></script>
 @section('content')
 <form action="{{ url('/shopping/cart') }}" method="post">
 {{ csrf_field() }}
@@ -29,6 +31,7 @@
     </ul>
   </div>
   <div class="relatedProducts">
+    <p>【 関連商品 】</p>
     @foreach ($categoryProducts as $product)
       <a href="{{ action('ShoppingController@show', $product->id) }}" class="a_relatedProduct"><img src="{{ $product->image }}" height="150px" width="150px"></a>
     @endforeach
