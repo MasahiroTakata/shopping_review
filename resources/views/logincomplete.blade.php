@@ -6,7 +6,7 @@
   <label>ログインしました。</label><br><br>
   <label>こんにちは！！
   @if (isset ($loginUser))
-    {{$loginUser}}さん！
+    {{$loginUser}}
   @endif
   さん</label><br><br>
   <a href = "{{ action('ShoppingController@index') }}">買い物を続ける</button>

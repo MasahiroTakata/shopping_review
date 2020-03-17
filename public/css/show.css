@@ -26,4 +26,11 @@
 
 .a_relatedProduct{
   padding-left: 20px;
+  display: none;
+}
+
+.blue{
+  width: 100px;
+  height: 100px;
+  background-color: turquoise;
 }
