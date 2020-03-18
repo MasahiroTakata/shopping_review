@@ -31,6 +31,12 @@ class ShoppingController extends Controller
         ]);
     }
 
+    // 検索
+    public function search (Request $request){
+        // 検索キーワードを取得してみる
+        return $request->input('keyword');
+    }
+
     // カートに保存・中身の確認
     public function cart (Request $request){
         if ($request->has('hiddenProductId')) { // 「カートに入れる」ボタンが押下された場合

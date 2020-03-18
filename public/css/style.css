@@ -36,6 +36,10 @@ header{
   display: flex;
 }
 
+.form-keyword{
+  padding-left: 30px;
+}
+
 .menu_user{
   height: 100%;
   padding-right: 100px;
