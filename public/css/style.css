@@ -32,6 +32,8 @@ header{
 .menu_title{
   padding-left: 100px;
   padding-top: 30px;
+  padding-bottom: 40px;
+  display: flex;
 }
 
 .menu_user{

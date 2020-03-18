@@ -15,6 +15,10 @@
   <div class = "menu">
     <div class = "menu_title">
       <a href="{{ action('ShoppingController@index') }}" class="a_title">Shopping Review</a>
+      <form class="form-inline">
+        <input type="text" name="keyword" value="" placeholder="キーワードを入力">
+        <input type="submit" value="検索" >
+      </form>
     </div>
     @if(session()->has('userName'))
       <form action="{{ url('/shopping/cart') }}" method="post" name="lookCart" id="lookCart" class="menu_user">
