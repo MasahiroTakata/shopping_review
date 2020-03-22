@@ -15,7 +15,7 @@
   <div class = "menu">
     <div class = "menu_title">
       <a href="{{ action('ShoppingController@index') }}" class="a_title">Shopping Review</a>
-      <form action="{{ url('/shopping/cart') }}" method="post" name="keyword" id="keyword" class="form-keyword">
+      <form action="{{ url('/shopping/search') }}" method="get" name="keyword" id="keyword" class="form-keyword">
         <input type="text" name="keyword" value="" placeholder="キーワードを入力">
         <input type="submit" value="検索" >
       </form>

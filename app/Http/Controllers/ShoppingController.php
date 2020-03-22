@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Http\Request; // 一旦消さずに保存
+// use Illuminate\Support\Facades\Request;
 use App\Shopping; // ここの記載を忘れない
 use App\Category; // この記述を書くことで、クラス内では「Category」と書くだけでOK、楽ができる
 use App\Product;
@@ -33,8 +34,12 @@ class ShoppingController extends Controller
 
     // 検索
     public function search (Request $request){
+        $data = $request->keyword;
+        dd($data);
         // 検索キーワードを取得してみる
-        return $request->input('keyword');
+        return view('search', [
+            'data' => $data
+        ]);
     }
 
     // カートに保存・中身の確認
