@@ -20,8 +20,7 @@ Route::get('/', function () { // Laravelの初期画面
 Route::get('/shopping', 'ShoppingController@index'); // 商品一覧
 Route::get('/shopping/{id}', 'ShoppingController@show'); // 商品詳細
 Route::get('/shopping/cart', 'ShoppingController@cartcheck'); // カート
-//Route::get('/shopping/search', 'ShoppingController@search'); // 検索機能
-Route::match(['get', 'post'],'/shopping/search', 'ShoppingController@search'); // 検索機能
+Route::get('/search', 'SearchController@index'); // 検索機能
 Route::get('/users/register', 'UsersController@index'); // ユーザ新規登録
 Route::get('/users/login', 'UsersController@login'); // ログイン
 Route::get('/users/logout', 'UsersController@logout'); // ログアウト
