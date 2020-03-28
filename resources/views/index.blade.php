@@ -10,9 +10,11 @@
       <figure class="imghvr-fade">
         <img src="{{ $product->image }}" height="300px" width="300px">
         <figcaption>
-          {{ $product->name }}
+          カテゴリー：{{ $product->category->name }}<br/><br/>
+          商品名：{{ $product->name }}<br/><br/>
+          価格：{{ $product->price }}円
         </figcaption>
-        <a href="#"></a>
+        <a href="{{ action('ShoppingController@show', $product->id) }}"></a>
       </figure>
     @endforeach
   @endif
