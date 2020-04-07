@@ -33,14 +33,23 @@ class ShoppingController extends Controller
 
     // カートに保存・中身の確認
     public function cart (Request $request){
-        if ($request->has('hiddenProductId')) { // 「カートに入れる」ボタンが押下された場合
-            session()->increment('cart.' . $request->input('hiddenProductId'), $request->input('quantity')); // この書き方で配列に保存してくれる
-        }
-
         $carts = session()->all(); // 保存したデータを全取得
         $array = array(); // viewに渡す為の配列
         $sum = 0; // 合計金額
 
+        if ($request->has('hiddenProductId')) { // カートに入れるボタン押下時
+            session()->increment('cart.' . $request->input('hiddenProductId'), $request->input('quantity')); // この書き方で配列に保存してくれる
+        }
+
+        // else{ // カートを見るボタンが押下された時
+        //     return view('cart', [
+        //             'carts' => $array,
+        //             'sum' => $sum
+        //         ]
+        //     );
+        // }
+
+        // if文で、カート内の有無から処理を分ける
         foreach ($carts['cart'] as $key => $value){
             $productInfomation = array();
             $productDetail = Product::findOrFail($key);
