@@ -50,6 +50,7 @@ class ShoppingController extends Controller
         // }
 
         // if文で、カート内の有無から処理を分ける
+        // テスト用
         foreach ($carts['cart'] as $key => $value){
             $productInfomation = array();
             $productDetail = Product::findOrFail($key);
