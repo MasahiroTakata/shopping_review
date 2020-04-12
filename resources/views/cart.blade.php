@@ -6,8 +6,8 @@
 @section('content')
   @csrf
   {{ csrf_field() }}
+  @if (!empty ($carts))
   <div class = "boxs">
-  @if (isset ($carts))
     @foreach ($carts as $cart)
       <div class = "cart_box">
         <img src = "{{ $cart['image'] }}" height="300px" width="300px">
@@ -18,11 +18,14 @@
         </ul>
       </div>
     @endforeach
-  @endif
   </div>
   <div class = "menu_box">
     合計金額：{{$sum}}円<br><br>
     <a href="{{ action('ShoppingController@index') }}" class = "cartAction">買い物を続ける</a>
     <a href="{{ action('BuyingController@index') }}" class = "cartAction" id = "buyConfirm">購入手続きへ</a>
   </div>
+  @else
+    <p>カートは空です。</p>
+    <a href="{{ action('ShoppingController@index') }}" class = "cartAction">買い物を続ける</a>
+  @endif
 @endsection
