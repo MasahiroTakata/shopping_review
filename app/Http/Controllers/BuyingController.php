@@ -15,6 +15,12 @@ class BuyingController extends Controller
         $carts = array();
         $sum = 0; // 合計金額
 
+        // 購入手続き画面に遷移する前に、セッションにユーザ情報があるか確認
+        if(!isset($userCarts['userId'])){
+            // ログインページへ遷移させる。（ユーザが分かるメッセージが欲しい）
+            return view('login');
+        }
+
         foreach ($userCarts['cart'] as $key => $value){
             $productInfomation = array();
             $productDetail = Product::findOrFail($key);
