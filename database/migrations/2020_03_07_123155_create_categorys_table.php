@@ -18,6 +18,15 @@ class CreateCategorysTable extends Migration
             $table->string('name');
             $table->timestamps();
         });
+
+        DB::table('categorys')->insert([
+            [
+                'name' => '果物',
+            ],
+            [
+                'name' => '野菜'
+            ]
+        ]);
     }
 
     /**
