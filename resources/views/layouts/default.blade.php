@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title')</title>
     <link rel="stylesheet" href="{{ secure_asset('css/reset.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">
     @yield('css')
 </head>
 <body>
