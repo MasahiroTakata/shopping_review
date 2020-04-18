@@ -1,12 +1,11 @@
 @extends('layouts.default')
 @section('title', 'Shopping Review')
 @section('css')
-@if(app('env') == 'production')
-      <link rel="stylesheet" href="{{ secure_asset('css/imagehover.min.css') }}">
-    @else
+  @if(app('env') == 'production')
+    <link rel="stylesheet" href="{{ secure_asset('css/imagehover.min.css') }}">
+  @else
     <link rel="stylesheet" href="{{ asset('css/imagehover.min.css') }}">
-    @endif
-
+  @endif
 @endsection
 @section('content')
 <div class = 'content'>
