@@ -13,11 +13,7 @@ use Illuminate\Http\Request; // POST送信する際に必要
 |
 */
 
-// Route::get('/', function () { // Laravelの初期画面
-//     return view('welcome');
-// });
-
-Route::get('/', 'ShoppingController@index'); // 商品一覧
+Route::get('/', 'ShoppingController@index'); // 商品一覧（初期画面）
 Route::get('/shopping/{id}', 'ShoppingController@show'); // 商品詳細
 Route::get('/shopping/cart', 'ShoppingController@cartcheck'); // カート
 Route::get('/search', 'SearchController@index'); // 検索機能

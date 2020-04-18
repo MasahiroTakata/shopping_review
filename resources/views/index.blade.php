@@ -1,7 +1,7 @@
 @extends('layouts.default')
 @section('title', 'Shopping Review')
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/imagehover.min.css') }}">
+<link rel="stylesheet" href="{{ mix('css/imagehover.min.css') }}">
 @endsection
 @section('content')
 <div class = 'content'>
