@@ -9,6 +9,12 @@ TECH::CAMPでは、railsというフレームワークを中心に学習しま�
 ## 開発環境
 MySQL(Ver 14.14), PHP7.4.3(Laravel Framework7.0.4), JavaScript(jQuery), GitHub(ソースコード管理)
 
+## 本番環境
+URL:https://shopping-review.herokuapp.com/<br><br>
+テストアカウント<br>
+メールアドレス：test@gmail.com<br>
+パスワード：abcdefgh<br>
+
 ## 機能
 ・ユーザの新規登録・ログイン<br>
 ・ログアウト<br>
