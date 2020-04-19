@@ -17,7 +17,7 @@ class UsersTableSeeder extends Seeder
                 'email'      => 'test@gmail.com',
                 'address1'          => '明石市',
                 'address2'          => '大久保町',
-                'password'          => 'B19891016',
+                'password'          => 'abcdefgh',
                 'discount_flg'       => 0
             ]
         ]);
