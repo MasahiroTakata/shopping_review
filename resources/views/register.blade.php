@@ -5,7 +5,7 @@
 @endsection
 @section('content')
 @if ($errors->any())
-  <ul>
+  <ul class = "errorMessages">
     @foreach ($errors->all() as $error)
       <li>{{ $error }}</li>
     @endforeach

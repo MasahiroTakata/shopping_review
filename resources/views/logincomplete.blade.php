@@ -1,14 +1,20 @@
 @extends('layouts.default')
 @section('title', 'Shopping Review')
 @section('css')
+<link rel="stylesheet" href="{{ asset('css/login.css') }}">
 @section('content')
   @csrf
-  <label>ログインしました。</label><br><br>
-  <label>こんにちは！！
-  @if (isset ($loginUser))
+  <div class = "loginMessage">
+    <label>ログインしました。</label><br><br>
+    <label>こんにちは！！
+    @if (isset ($loginUser))
     {{$loginUser}}
-  @endif
-  さん</label><br><br>
-  <a href = "{{ action('ShoppingController@index') }}">買い物を続ける</button>
-  <a href = "{{ action('BuyingController@index') }}">購入手続きへ</button>
+    @endif
+    さん
+    </label><br><br>
+  </div>
+  <div class = "btns">
+    <a href = "{{ action('ShoppingController@index') }}" class = "links">買い物を続ける</a>
+    <a href = "{{ action('BuyingController@index') }}" class = "links">購入手続きへ</a>
+  </div>
 @endsection
