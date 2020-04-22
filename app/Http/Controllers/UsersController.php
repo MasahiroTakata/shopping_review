@@ -22,9 +22,20 @@ class UsersController extends Controller
         ]);
 
         $userInfo = new User($request->all());
-        return view('confirm', compact('userInfo'));
+        return view('confirm', compact('userInfo')); // compactメソッドで、配列をビューに渡せる
     }
 
+    // 押されたボタンで呼び出すをメソッドを分ける
+    public function userConfirm(Request $request){
+        $action = $request->get('action', '登録する');
+        $input = $request->except('action');
+
+        if($action == '登録する'){
+            return $this->complete($request); // 登録処理へ
+        } else{
+            return redirect()->action('UsersController@index')->withInput($input); // 値を保持したまま、登録画面へ戻る。
+        }
+    }
     // ユーザー新規登録
     public function complete (Request $request){
         $userRegister = new User();
