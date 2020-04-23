@@ -72,7 +72,13 @@ class UsersController extends Controller
                 //session()->flush();
                 $s_name = session()->get('userName');
             }
-            return view('logincomplete', ['loginUser' => $s_name]); // ログイン完了画面へ
+
+            $userCart = session()->all(); // カート情報を取得
+            if(isset($userCart["cart"])){
+                return view('logincomplete', ['loginUser' => $s_name, 'cart' => $userCart["cart"]]);
+            } else{
+                return view('logincomplete', ['loginUser' => $s_name]);
+            }
         } else{
             return redirect()->back(); // ログイン画面に戻る
         }

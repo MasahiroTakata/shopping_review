@@ -7,7 +7,7 @@
   <div class = "loginMessage">
     <label>ログインしました。</label><br><br>
     <label>こんにちは！！
-    @if (isset ($loginUser))
+    @if(isset($loginUser))
     {{$loginUser}}
     @endif
     さん
@@ -15,6 +15,8 @@
   </div>
   <div class = "btns">
     <a href = "{{ action('ShoppingController@index') }}" class = "links">買い物を続ける</a>
-    <a href = "{{ action('BuyingController@index') }}" class = "links">購入手続きへ</a>
+    @if(isset($cart))
+      <a href = "{{ action('BuyingController@index') }}" class = "links">購入手続きへ</a>
+    @endif
   </div>
 @endsection
