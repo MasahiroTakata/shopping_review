@@ -25,7 +25,11 @@
     <a href="{{ action('BuyingController@index') }}" class = "cartAction" id = "buyConfirm">購入手続きへ</a>
   </div>
   @else
-    <p>カートは空です。</p>
+  <div class = "nothingMessage">
+    <label>カートは現在、空です。</label>
+  </div>
+  <div class = "link">
     <a href="{{ action('ShoppingController@index') }}" class = "cartAction">買い物を続ける</a>
+  </div>
   @endif
 @endsection

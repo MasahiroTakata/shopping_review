@@ -25,3 +25,14 @@
 #buyConfirm{
   padding-left: 20px;
 }
+
+.nothingMessage{
+  padding-top: 20px;
+  height: 100px;
+  line-height: 50px;
+  text-align: center;
+}
+
+.link{
+  text-align: center;
+}
