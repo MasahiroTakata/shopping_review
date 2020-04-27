@@ -11,7 +11,7 @@
     @endforeach
   </ul>
 @endif
-<form action="{{ url('/users/confirm') }}" method="post">
+<form action="{{ url('/users/confirm') }}" method="POST">
   @csrf
   <div class="form-group">
     <table>
@@ -38,7 +38,7 @@
     </table>
   </div>
   <div class="btnSpace">
-    <input type="submit" class="btn-success" value="登録する">
+    <input type="submit" class="btn-success" value="確認へ">
   </div>
 </form>
 @endsection

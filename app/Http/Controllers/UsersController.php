@@ -12,10 +12,11 @@ class UsersController extends Controller
         return view('register');
     }
 
+    // urlは「register」にして、viewは確認画面を表示させる
     public function confirm (Request $request){
         $this->validate($request, [
             'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
+            'email' => 'required|email|max:255|unique:users,email',
             'password' => 'required|string|min:8',
             'address1' => 'required|string|max:255',
             'address2' => 'required|string|max:255',
@@ -39,8 +40,7 @@ class UsersController extends Controller
     // ユーザー新規登録
     public function complete (Request $request){
         $userRegister = new User();
-        // フィールドを指定して、追加する
-        $userRegister->name = $request->name;
+        $userRegister->name = $request->name; // フィールドを指定して、追加する
         $userRegister->email = $request->email;
         $userRegister->address1 = $request->address1;
         $userRegister->address2 = $request->address2;
@@ -67,6 +67,7 @@ class UsersController extends Controller
 
         if($userCheck){
             $userInfo = User::where('email',$request->input('email'))->where('password',$request->input('password'))->pluck("name","id");
+
             foreach( $userInfo as $key => $value ){
                 session()->put(['userId' => $key, 'userName' => $value]);
                 //session()->flush();
@@ -74,6 +75,7 @@ class UsersController extends Controller
             }
 
             $userCart = session()->all(); // カート情報を取得
+
             if(isset($userCart["cart"])){
                 return view('logincomplete', ['loginUser' => $s_name, 'cart' => $userCart["cart"]]);
             } else{

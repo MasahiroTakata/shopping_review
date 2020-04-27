@@ -30,15 +30,17 @@ class ShoppingController extends Controller
         ]);
     }
 
-    // カートに保存・中身の確認
-    public function cart (Request $request){
+    // カートに保存（一覧に戻って、画面上にカートに保存した旨を伝える）
+    public function cartIn (Request $request){
+        session()->increment('cart.'. $request->input('hiddenProductId'), $request->input('quantity')); // この書き方で配列に保存してくれる
+
+        return redirect('/cart'); // カート画面をリダイレクトする
+    }
+
+    // カートを閲覧
+    public function cart(){
         $array = array(); // viewに渡す為の配列
         $sum = 0; // 合計金額
-
-        if ($request->has('hiddenProductId')){ // カートに入れるボタン押下時
-            session()->increment('cart.'. $request->input('hiddenProductId'), $request->input('quantity')); // この書き方で配列に保存してくれる
-        }
-
         $carts = session()->all(); // 保存したデータを全取得
 
         if (!isset($carts["cart"])){ // カートの中身が無い場合

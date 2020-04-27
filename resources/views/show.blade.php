@@ -6,7 +6,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script type="text/javascript" src="{{ asset('js/show.js') }}"></script>
 @section('content')
-<form action="{{ url('/shopping/cart') }}" method="post">
+<form action="{{ url('/shopping/cartIn') }}" method="post">
 {{ csrf_field() }}
   <div class = "detail_box">
     <img src = "{{ $productDetail->image }}" height = "400px" width = "400px">
@@ -26,7 +26,7 @@
         </li>
         <li class = "detailList"><input type="submit" id="cartIn" name="cartIn" value="カートに入れる"></li>
       @else
-        <li class = "detailList"><h3 id = "delete_yes">在庫：すみません、ないです。</h3></li>
+        <li class = "detailList"><h3 id = "delete_yes">在庫切れです</h3></li>
       @endif
     </ul>
   </div>

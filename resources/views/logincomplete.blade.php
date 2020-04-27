@@ -1,7 +1,7 @@
 @extends('layouts.default')
 @section('title', 'Shopping Review')
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/login.css') }}">
+<link rel="stylesheet" href="{{ asset('css/login-complete.css') }}">
 @section('content')
   @csrf
   <div class = "loginMessage">
