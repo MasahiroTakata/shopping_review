@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title')</title>
-    <link rel="stylesheet" href="{{ secure_asset('css/reset.css') }}">
-    <link rel="stylesheet" href="{{ secure_asset('css/top.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/top.css') }}">
     @yield('css')
 </head>
 <body>
@@ -21,7 +21,7 @@
       </form>
     </div>
     @if(session()->has('userName'))
-      <form action="{{ url('/shopping/cart') }}" method="post" name="lookCart" id="lookCart" class="menu_user">
+      <form action="{{ url('/cart') }}" method="get" name="lookCart" id="lookCart" class="menu_user">
       @csrf
       <p class="loginname">{{session()->get('userName')}}さんログイン中</p>
       <p class="login"><a href="javascript:lookCart.submit()" class="a_login">カートを見る</a><a href="{{ action('UsersController@logout') }}" class="a_login">ログアウト</a></p>
