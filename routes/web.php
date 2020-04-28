@@ -22,12 +22,16 @@ Route::get('/users/logout', 'UsersController@logout'); // ログアウト
 Route::get('/buying/buyComfirm', 'BuyingController@index'); // 購入手続き
 Route::get('/buying/buyingComplete', 'BuyingController@buyingComplete'); // 購入完了
 Route::get('/cart', 'ShoppingController@cart'); // カートを閲覧
+// 画面リロード時の対応
 Route::get('/users/confirm', function(){
   return redirect('/users/register');
-}); // 画面がリロードされた時の対応（ユーザ登録確認画面）
+});
+Route::get('users/logincomplete', function(){
+  return redirect('/');
+});
 
 Route::post('/shopping/cartIn', 'ShoppingController@cartIn'); // カートに保存
-Route::post('/users/confirm', 'UsersController@confirm'); // 登録確認画面へ（ユーザ）
+Route::post('/users/confirm', 'UsersController@confirm'); // ユーザ登録確認画面へ（ユーザ）
 Route::post('/users/userConfirm', 'UsersController@userConfirm'); // 登録完了前の判断
 Route::post('/users/complete', 'UsersController@complete'); // ユーザ登録完了（コントローラー内で登録処理を行うのでgetを使う）
 Route::post('/users/logincomplete', 'UsersController@logincomplete'); // ログイン完了

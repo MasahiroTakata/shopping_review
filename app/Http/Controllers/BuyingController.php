@@ -17,7 +17,6 @@ class BuyingController extends Controller
 
         // 購入手続き画面に遷移する前に、セッションにユーザ情報があるか確認
         if(!isset($userCarts['userId'])){
-            // ログインページへ遷移させる。（ユーザが分かるメッセージが欲しい）
             return view('login');
         }
 
@@ -40,7 +39,6 @@ class BuyingController extends Controller
 
         $userDetail = User::findOrFail($userCarts['userId']);
 
-        // return session()->all();
         return view('buyingConfirm', [
             'carts' => $carts,
             'loginuser' => $userDetail,
@@ -52,6 +50,11 @@ class BuyingController extends Controller
     public function buyingComplete (){
         $userCarts = session()->all();
         $userId = $userCarts['userId'];
+
+        // セッションにカート情報が保存されているか確認(リロード対応)
+        if (!isset($userCarts['cart'])){
+            return redirect('/'); // 一覧画面へ遷移させる
+        }
 
         foreach ($userCarts['cart'] as $key => $value){
             $newOrder = new Order();
