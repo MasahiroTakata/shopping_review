@@ -8,11 +8,10 @@ use IlluminateDatabaseEloquentModel;
 
 class UsersController extends Controller
 {
-    public function index (){
+    public function index (){ // ユーザ登録画面の表示
         return view('register');
     }
 
-    // urlは「register」にして、viewは確認画面を表示させる
     public function confirm (Request $request){
         $this->validate($request, [
             'name' => 'required|string|max:255',
