@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="{{ secure_asset('css/reset.css') }}">
     <link rel="stylesheet" href="{{ secure_asset('css/top.css') }}">
     @yield('css')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ asset('js/search.js') }}"></script>
 </head>
 <body>
 <header>
@@ -16,8 +18,8 @@
       <a href="{{ action('ShoppingController@index') }}" class="a_title">Shopping Review</a>
       <form action="{{ url('/search') }}" method="get" name="keyword" id="keyword" class="form-keyword">
         {{ csrf_field() }}
-        <input type="text" name="keyword" value="" placeholder="キーワードを入力">
-        <input type="submit" value="検索" >
+        <input type="text" name="keyword" value="" id="keywordBox" placeholder="キーワードを入力">
+        <input type="submit" id = "searchingBtn" value="検索">
       </form>
     </div>
     @if(session()->has('userName'))

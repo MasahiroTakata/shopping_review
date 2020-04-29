@@ -39,6 +39,16 @@ header{
   padding-left: 30px;
 }
 
+#keywordBox{
+  border:none;
+  border-radius:3px;
+  padding: 2px 8px;
+}
+
+#keywordBox:focus{
+  outline: none;
+}
+
 .menu_user{
   height: 100%;
   padding-right: 100px;
