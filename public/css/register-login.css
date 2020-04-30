@@ -26,6 +26,10 @@ table td{
   border: none;
 }
 
+.txtBox:focus{
+  outline: none;
+}
+
 .btnSpace{
   margin-top: 30px;
   margin-left: auto;

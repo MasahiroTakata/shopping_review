@@ -42,6 +42,7 @@ header{
 #keywordBox{
   border:none;
   border-radius:3px;
+  box-shadow: 1px 1px 1px #C0C0C0 inset;
   padding: 2px 8px;
 }
 
