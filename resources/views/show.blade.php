@@ -30,6 +30,17 @@
       @endif
     </ul>
   </div>
+  <div class="commentSpace">
+    @if($productComments->count() == 0)
+      <p>現在、コメントはありません。</p>
+    @else
+      @foreach ($productComments as $comment)
+        <p>{{ $comment->custmer->name }}</p>
+        <p>{{ $comment->comment }}</p>
+      @endforeach
+    @endif
+
+  </div>
   <div class="relatedProducts">
     <p>【 関連商品 】</p>
     @foreach ($categoryProducts as $product)

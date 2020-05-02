@@ -5,6 +5,8 @@ use Illuminate\Http\Request;
 use App\Shopping; // ここの記載を忘れない
 use App\Category; // この記述を書くことで、クラス内では「Category」と書くだけでOK、楽ができる
 use App\Product;
+use App\Comment;
+use App\User;
 
 class ShoppingController extends Controller
 {
@@ -22,11 +24,12 @@ class ShoppingController extends Controller
     // 商品の詳細情報を表示
     public function show ($id){
         $productDetail = Product::findOrFail($id); // 見つからなかったら例外を返す処理を行ってくれる
-        $categoryProducts = Product::where('category_id',$productDetail["category_id"])->whereNotIn('id',[$id])->get(); // 関連商品も取得（対象商品と同カテゴリー）
-
+        $categoryProducts = Product::where('category_id',$productDetail["category_id"])->whereNotIn('id',[$id])->get(); // 同カテゴリー商品を取得する（対象商品以外を取得）
+        $productComments = Comment::where('product_id',$productDetail["id"])->get(); // 対象商品に対するコメントも取得する
         return view('show', [
             'productDetail' => $productDetail,
             'categoryProducts' => $categoryProducts,
+            'productComments' => $productComments,
         ]);
     }
 
