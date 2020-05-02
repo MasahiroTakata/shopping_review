@@ -30,7 +30,7 @@ class CommentsTableSeeder extends Seeder
             ],
             [
                 'id' => 3,
-                'product_id' => 2,
+                'product_id' => 1,
                 'custmer_id' => 1,
                 'category_id' => 2,
                 'comment' => 'スイカは野菜です。ご存知でしたか？',
