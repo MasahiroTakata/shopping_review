@@ -15,16 +15,16 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id'); //id 自動増分するint型フィールド
-            $table->integer('user_id')->unsigned(); // カスタマーID （外部キー）
+            $table->integer('custmer_id')->unsigned(); // カスタマーID （外部キー）
             $table->integer('product_id')->unsigned(); // 商品ID（外部キー）
             $table->integer('quantity'); // 数量
             $table->boolean('discount_flg')->default(false); // 割引フラグ
             $table->timestamps();
 
-            $table->index('user_id'); // インデックスの作成（外部キー制約を用いる場合はそういうルール）多分、検索効率を上げるため
+            $table->index('custmer_id'); // インデックスの作成（外部キー制約を用いる場合はそういうルール）多分、検索効率を上げるため
             $table->index('product_id');
 
-            $table->foreign('user_id')->references('id')->on('users'); // テーブルのIDを外部キーに設定
+            $table->foreign('custmer_id')->references('id')->on('custmers'); // テーブルのIDを外部キーに設定
             $table->foreign('product_id')->references('id')->on('products'); // テーブルのIDを外部キーに設定
         });
     }

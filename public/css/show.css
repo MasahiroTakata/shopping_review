@@ -1,7 +1,7 @@
 .detail_box{
   width: 60%;
-  height: 500px;
-  margin-top: 100px;
+  height: 450px;
+  margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -29,8 +29,9 @@
   display: none;
 }
 
-.blue{
-  width: 100px;
-  height: 100px;
-  background-color: turquoise;
+.commentSpace{
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
 }
