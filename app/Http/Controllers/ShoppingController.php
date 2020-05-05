@@ -6,7 +6,7 @@ use App\Shopping; // ここの記載を忘れない
 use App\Category; // この記述を書くことで、クラス内では「Category」と書くだけでOK、楽ができる
 use App\Product;
 use App\Comment;
-use App\User;
+use App\Custmer;
 
 class ShoppingController extends Controller
 {

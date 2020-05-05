@@ -11,7 +11,7 @@
   @endforeach
 </ul>
 @endif
-<form action="{{ url('/users/logincomplete') }}" method="post">
+<form action="{{ url('/custmers/logincomplete') }}" method="post">
   {{ csrf_field() }}
   <div class="form-group">
     <table>

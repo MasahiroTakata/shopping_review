@@ -11,7 +11,7 @@
     @endforeach
   </ul>
 @endif
-<form action="{{ url('/users/confirm') }}" method="POST">
+<form action="{{ url('/custmers/confirm') }}" method="POST">
   @csrf
   <div class="form-group">
     <table>
