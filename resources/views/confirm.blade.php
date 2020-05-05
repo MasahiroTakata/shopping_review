@@ -4,28 +4,28 @@
   <link rel="stylesheet" href="{{ asset('css/register-confirm.css') }}">
 @endsection
 @section('content')
-<form action="{{ url('/users/userConfirm') }}" method="post">
+<form action="{{ url('/custmers/custmerConfirm') }}" method="post">
 @csrf
   <div class="form-group">
     <table>
       <tr>
         <th>名前</th>
-        <td><label>{{$userInfo->name}}</label></td>
+        <td><label>{{$custmerInfo->name}}</label></td>
       </tr>
       <tr>
         <th>メールアドレス</th>
-        <td><label>{{$userInfo->email}}</label></td>
+        <td><label>{{$custmerInfo->email}}</label></td>
       </tr>
       <tr>
         <th>住所１</th>
-        <td><label>{{$userInfo->address1}}</label></td>
+        <td><label>{{$custmerInfo->address1}}</label></td>
       </tr>
       <tr>
         <th>住所２</th>
-        <td><label>{{$userInfo->address2}}</label></td>
+        <td><label>{{$custmerInfo->address2}}</label></td>
       </tr>
     </table>
-    @foreach($userInfo->getAttributes() as $key => $value)
+    @foreach($custmerInfo->getAttributes() as $key => $value)
       <input type="hidden" name="{{$key}}" value="{{$value}}">
     @endforeach
   </div>
