@@ -35,8 +35,13 @@
       <p>現在、コメントはありません。</p>
     @else
       @foreach ($productComments as $comment)
-        <p>{{ $comment->custmer->name }}</p>
-        <p>{{ $comment->comment }}</p>
+        <div class="commentBox">
+          <div class="custmerInfo">
+            <label class="custmerName">{{ $comment->custmer->name }}</label>
+            <label class="createdDate">（{{$comment->created_at}}）</label>
+          </div>
+          <p class="custmerComment">{{ $comment->comment }}</p>
+        </div>
       @endforeach
     @endif
 

@@ -35,3 +35,21 @@
   margin-right: auto;
   margin-bottom: 50px;
 }
+
+.commentBox{
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.custmerInfo{
+  margin-bottom: 10px;
+  color: gray;
+  height: 30px;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.createdDate{
+  margin-left: 20px;
+  font-size: 11px;
+}

@@ -18,7 +18,9 @@ class CommentsTableSeeder extends Seeder
                 'custmer_id' => 1,
                 'category_id' => 1,
                 'comment' => 'まん丸な桃でした。瑞々しくて、美味しかったです。',
-                'approval' => false
+                'approval' => false,
+                'created_at' => "2020-05-03 00:00:00",
+
             ],
             [
                 'id' => 2,
@@ -26,7 +28,8 @@ class CommentsTableSeeder extends Seeder
                 'custmer_id' => 1,
                 'category_id' => 1,
                 'comment' => 'まん丸なピンク色で食べるのが勿体ない気がしました。',
-                'approval' => false
+                'approval' => false,
+                'created_at' => "2020-05-05 00:00:00",
             ],
         ]);
     }
