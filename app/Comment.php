@@ -15,7 +15,4 @@ class Comment extends Model
     public function product(){ // 一つの商品は、一つのカテゴリーに所属する
         return $this->belongsTo('App\Product');
     }
-    public function category(){ // 一つの商品は、一つのカテゴリーに所属する
-        return $this->belongsTo('App\Category');
-    }
 }

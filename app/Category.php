@@ -19,11 +19,6 @@ class Category extends Model
         return $this->hasMany('App\Product');
     }
 
-    public function comments() // １つのカテゴリーには複数の商品がある
-    {
-        return $this->hasMany('App\Comment');
-    }
-
     public function scopeFlg ($query, $num) {
         return $query->where ('flg', $num);
     }
