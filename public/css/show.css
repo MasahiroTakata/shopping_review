@@ -29,6 +29,14 @@
   display: none;
 }
 
+.selectBtns{
+  display: flex;
+}
+
+#writeComment{
+  margin-left: 15px;
+}
+
 .commentSpace{
   width: 80%;
   margin-left: auto;

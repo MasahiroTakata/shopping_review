@@ -34,7 +34,19 @@ class ShoppingController extends Controller
     }
 
     // カートに保存（一覧に戻って、画面上にカートに保存した旨を伝える）
-    public function cartIn (Request $request){
+    public function userSelect (Request $request){
+        $action = $request->get('action', 'カートに入れる');
+
+        if($action == 'カートに入れる'){
+            return $this->cartIn($request); // カートに追加する処理へ
+        } else{
+            $intProductId = (int)$request->get('hiddenProductId');
+            return redirect()->action('ReviewController@index', ['productId' => $intProductId]);
+            // 投稿後、「コメントは管理者に見られます。承諾されると割引適用されます。よろしいですか？」
+        }
+    }
+
+    public function cartIn(Request $request){
         session()->increment('cart.'. $request->input('hiddenProductId'), $request->input('quantity')); // この書き方で配列に保存してくれる
 
         return redirect('/cart'); // カート画面をリダイレクトする
