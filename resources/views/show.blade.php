@@ -9,7 +9,7 @@
 <form action="{{ url('/shopping/userSelect') }}" method="post">
 {{ csrf_field() }}
   <div class = "detail_box">
-    <img src = "{{ $productDetail->image }}" height = "400px" width = "400px">
+    <img src = "{{ $productDetail->image }}" height = "300px" width = "300px">
     <ul class = "productDetail">
       <li class = "detailList">商品ID：{{ $productDetail->id }}</li>
       <input type="hidden" name="hiddenProductId" value="{{ $productDetail->id }}">
@@ -25,8 +25,8 @@
         </select>
         </li>
         <div class="selectBtns">
-          <li class = "detailList"><input type="submit" id="cartIn" name="action" value="カートに入れる"></li>
-          <li class = "detailList"><input type="submit" id="writeComment" name="action" value="レビューを書く"></li>
+          <li class = "detailList"><input type="submit" class="btns" name="action" value="カートに入れる"></li>
+          <li class = "detailList"><input type="submit" class="btns" id="writeComment" name="action" value="レビューを書く"></li>
         </div>
       @else
         <li class = "detailList"><h3 id = "delete_yes">在庫切れです</h3></li>

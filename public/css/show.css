@@ -57,6 +57,22 @@
   vertical-align: middle;
 }
 
+.btns{
+  padding: 0.3em 1em;
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  background-color: #00BB00;
+  border: solid 2px #00BB00;
+  border-radius: 3px;
+  transition: .4s;
+}
+
+.btns:hover {
+  background: white;
+  color: #00BB00;
+}
+
 .createdDate{
   margin-left: 20px;
   font-size: 11px;
