@@ -34,9 +34,11 @@ Route::get('/custmers/custmerConfirm', function(){
   return redirect('/');
 });
 
+
 Route::post('/shopping/userSelect', 'ShoppingController@userSelect'); // カートに保存
 Route::post('/custmers/confirm', 'CustmerController@confirm'); // ユーザ登録確認画面へ（ユーザ）
 Route::post('/custmers/custmerConfirm', 'CustmerController@custmerConfirm'); // 登録完了前の判断
 Route::post('/custmers/complete', 'CustmerController@complete'); // ユーザ登録完了（コントローラー内で登録処理を行うのでgetを使う）
 Route::post('/custmers/logincomplete', 'CustmerController@logincomplete'); // ログイン完了
 Route::post('/createReview/savePost', 'ReviewController@savePost'); // レビューの投稿
+Route::post('/createReview/postConfirm', 'ReviewController@postConfirm'); // レビューの投稿
