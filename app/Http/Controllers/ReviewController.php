@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\Custmer;
 use App\Comment;
+use IlluminateDatabaseEloquentModel;
 
 class ReviewController extends Controller
 {
@@ -17,7 +18,12 @@ class ReviewController extends Controller
         ]);
     }
 
-    public function savePost (Request $request){
+    // バリデーションのメソッドを用意する
+    public function postConfirm (Request $request){
+        $this->validate($request, [
+            'review' => 'required|min:8|max:255',
+        ]);
+
         $custmerInfo = session()->all();
 
         if(isset($custmerInfo["custmerId"])){
@@ -26,10 +32,10 @@ class ReviewController extends Controller
             $saveComment->custmer_id = $custmerInfo["custmerId"];
             $saveComment->comment = $request->review; // フィールドを指定して、追加する
             $saveComment->save();
-
-            return redirect('/');
         } else{
             return redirect('/custmers/login');
         }
+
+        return redirect('/');
     }
 }
