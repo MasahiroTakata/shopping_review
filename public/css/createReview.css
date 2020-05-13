@@ -1,3 +1,9 @@
+.errorMessages{
+  text-align: center;
+  color: red;
+  margin-top: 20px;
+}
+
 .productSpace{
   margin: 30px auto 0px auto;
   width: 50%;
