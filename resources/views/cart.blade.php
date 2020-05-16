@@ -6,30 +6,44 @@
 @section('content')
   @csrf
   {{ csrf_field() }}
-  @if (!empty ($carts))
-  <div class = "boxs">
-    @foreach ($carts as $cart)
-      <div class = "cart_box">
-        <img src = "{{ $cart['image'] }}" height="300px" width="300px">
-        <ul class = "productDetail">
-          <li class = "detailList">商品名：{{$cart['name']}}</li>
-          <li class = "detailList">価格：{{$cart['price']}} 円</li>
-          <li class = "detailList">数量：{{$cart['quantity']}} 個</li>
-        </ul>
-      </div>
-    @endforeach
-  </div>
+  <h2 class="shoppingCart">カートの中身</h2>
+  <table>
+    <tbody>
+      <tr>
+        <th>商品情報</th>
+        <th></th>
+        <th>価格</th>
+        <th>数量</th>
+        <th>小計</th>
+      </tr>
+      @if (!empty ($carts))
+        @foreach ($carts as $cart)
+          <tr>
+            <td><img src = "{{ $cart['image'] }}" height="150px" width="150px"></td>
+            <td>{{$cart['name']}}</td>
+            <td>{{$cart['price']}} 円</td>
+            <td>{{$cart['quantity']}} 個</td>
+            <td>{{$cart['price'] * $cart['quantity']}} 円</td>
+          </tr>
+        @endforeach
+          <tr class="totalSpace">
+            <td colspan="3"></td>
+            <td>合計金額：</td>
+            <td><h2 class="totalPrice">{{$sum}} 円</h2></td>
+          </tr>
+    </tbody>
+  </table>
   <div class = "menu_box">
-    合計金額：{{$sum}}円<br><br>
-    <a href="{{ action('ShoppingController@index') }}" class = "cartAction">買い物を続ける</a>
-    <a href="{{ action('BuyingController@index') }}" class = "cartAction" id = "buyConfirm">購入手続きへ</a>
+    <a href="{{ action('ShoppingController@index') }}" id = "continueBuy">買い物を続ける</a>
+    <a href="{{ action('BuyingController@index') }}" id = "buyConfirm">購入手続きへ</a>
   </div>
-  @else
-  <div class = "nothingMessage">
-    <label>カートは現在、空です。</label>
-  </div>
-  <div class = "link">
-    <a href="{{ action('ShoppingController@index') }}" class = "cartAction">買い物を続ける</a>
-  </div>
-  @endif
+      @else
+        <tr>
+          <td colspan="5">
+            <p class="blankMessage">カートの中身は空です。</p>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+    @endif
 @endsection
