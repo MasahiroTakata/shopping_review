@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -17,6 +16,13 @@ class SearchController extends Controller
         $products = Product::where('name', 'LIKE', "%$search%")
                     ->limit(20)->get();
 
+        // if (!empty(Input::get('title'))) {
+        //     $queryTitle = Input::get('title');
+        //     return Post::select('id', 'title')
+        //             ->where('title', 'LIKE', "%$queryTitle%")
+        //             ->limit(20)->get();
+        // }
+        // return [];
         return view('search', [
             'products' => $products,
             'keyword' => $search

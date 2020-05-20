@@ -20,6 +20,9 @@
         {{ csrf_field() }}
         <input type="text" name="keyword" value="" id="keywordBox" placeholder="キーワードを入力">
         <input type="submit" id = "searchingBtn" value="検索">
+        <div id="app">
+          <product-search></product-search>
+        </div>
       </form>
     </div>
     @if(session()->has('custmerName'))
