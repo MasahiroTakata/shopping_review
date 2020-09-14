@@ -34,7 +34,6 @@ Route::get('/custmers/custmerConfirm', function(){
   return redirect('/');
 });
 
-
 Route::post('/shopping/userSelect', 'ShoppingController@userSelect'); // カートに保存
 Route::post('/custmers/confirm', 'CustmerController@confirm'); // ユーザ登録確認画面へ（ユーザ）
 Route::post('/custmers/custmerConfirm', 'CustmerController@custmerConfirm'); // 登録完了前の判断
