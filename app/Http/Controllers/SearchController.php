@@ -8,21 +8,20 @@ class SearchController extends Controller
 {
     public function index (Request $request){
         $search = $request->keyword;
-
+        $data = $request->all();
         if ($search == ""){ // キーワードが空の場合
             return redirect('/'); // トップページへ遷移させる
         }
 
         $products = Product::where('name', 'LIKE', "%$search%")
                     ->limit(20)->get();
+        // return $data['testData'];
+        // // if ($search != "") {
+        // //     return Product::select('id', 'name')
+        // //             ->where('name', 'LIKE', "%$search%")
+        // //             ->limit(20)->get();
+        // // return $data['testData'];
 
-        // if (!empty(Input::get('title'))) {
-        //     $queryTitle = Input::get('title');
-        //     return Post::select('id', 'title')
-        //             ->where('title', 'LIKE', "%$queryTitle%")
-        //             ->limit(20)->get();
-        // }
-        // return [];
         return view('search', [
             'products' => $products,
             'keyword' => $search

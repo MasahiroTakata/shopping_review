@@ -4,12 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--csrfの対策処理をしないと、エラーが表示される-->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <title>@yield('title')</title>
-    <link rel="stylesheet" href="{{ secure_asset('css/reset.css') }}">
-    <link rel="stylesheet" href="{{ secure_asset('css/top.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/top.css') }}">
     @yield('css')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="{{ asset('js/search.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/searchAjax.js') }}"></script>
 </head>
 <body>
 <header>
@@ -20,9 +24,6 @@
         {{ csrf_field() }}
         <input type="text" name="keyword" value="" id="keywordBox" placeholder="キーワードを入力">
         <input type="submit" id = "searchingBtn" value="検索">
-        <div id="app">
-          <product-search></product-search>
-        </div>
       </form>
     </div>
     @if(session()->has('custmerName'))
