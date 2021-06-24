@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
 use App\Shopping; // ここの記載を忘れない
 use App\Category; // この記述を書くことで、クラス内では「Category」と書くだけでOK、楽ができる
 use App\Product;
@@ -13,7 +14,7 @@ class ShoppingController extends Controller
     // 商品を一覧表示する
     public function index (){
         $categorys = Category::all(); // 全件抽出
-        $products = Product::all();
+        $products = Product::paginate(12); // 1ページに12件表示させる
 
         return view ('index', [
             'categorys' => $categorys,

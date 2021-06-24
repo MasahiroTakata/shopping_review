@@ -138,6 +138,23 @@ header{
   overflow: auto; /* スクロール */
 }
 
+nav{
+  width: 100%;
+  padding: 3vw 0;
+}
+
+.pagination{
+  list-style-type: none;
+  text-align: center;
+}
+
+.pagination li{
+  display: inline;
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+}
+
 footer{
   height: 100px;
   width: 100%;

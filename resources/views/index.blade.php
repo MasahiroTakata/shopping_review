@@ -1,11 +1,11 @@
 @extends('layouts.default')
 @section('title', 'Shopping Review')
 @section('css')
-<link rel="stylesheet" href="{{ secure_asset('css/imagehover.min.css') }}">
+<link rel="stylesheet" href="{{ asset('css/imagehover.min.css') }}">
 @endsection
 @section('content')
+@if (isset ($products))
 <div class = 'content'>
-  @if (isset ($products))
     @foreach ($products as $product)
       <figure class="imghvr-fade">
         <img src="{{ $product->image }}" height="300px" width="300px">
@@ -17,6 +17,7 @@
         <a href="{{ action('ShoppingController@show', $product->id) }}"></a>
       </figure>
     @endforeach
-  @endif
+    {{ $products->links() }}
 </div>
+@endif
 @endsection
