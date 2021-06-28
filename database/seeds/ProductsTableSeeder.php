@@ -67,6 +67,34 @@ class ProductsTableSeeder extends Seeder
                 'image'       => 'https://www.pictcan.com/item/img/0034.png',
             ],
 
+            [
+                'category_id'    => 2,
+                'name'      => 'さつまいも',
+                'price'          => 230,
+                'image'       => 'https://www.pictcan.com/item/img/0110.png',
+            ],
+
+            [
+                'category_id'    => 1,
+                'name'      => 'マスカット',
+                'price'          => 540,
+                'image'       => 'https://www.pictcan.com/item/img/0035.png',
+            ],
+
+            [
+                'category_id'    => 1,
+                'name'      => 'キウイフルーツ',
+                'price'          => 230,
+                'image'       => 'https://www.pictcan.com/item/img/0029.png',
+            ],
+
+            [
+                'category_id'    => 2,
+                'name'      => 'アスパラガス',
+                'price'          => 210,
+                'image'       => 'https://www.pictcan.com/item/img/0028.png',
+            ],
+
         ]);
     }
 }
