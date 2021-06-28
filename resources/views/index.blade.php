@@ -8,7 +8,7 @@
 <div class = 'content'>
     @foreach ($products as $product)
       <figure class="imghvr-fade">
-        <img src="{{ $product->image }}" height="300px" width="300px">
+        <img src="{{ $product->image }}" class="productImage">
         <figcaption>
           カテゴリー：{{ $product->category->name }}<br/><br/>
           商品名：{{ $product->name }}<br/><br/>
