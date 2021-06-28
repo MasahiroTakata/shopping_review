@@ -72,6 +72,11 @@ header{
   padding-left: 200px;
 }
 
+.productImage{
+  width: 17.8vw;
+  height: 17.8vw;
+}
+
 .a_title{
   text-decoration: none;
   color: white;
@@ -130,8 +135,7 @@ header{
 }
 
 .container{
-  height: 800px;
-  width: 73%;
+  width: 72.9vw;
   background-color: white;
   margin-left: auto;
   margin-right: auto;
@@ -156,7 +160,7 @@ nav{
 }
 
 footer{
-  height: 100px;
+  /* height: 100px; */
   width: 100%;
   color: white;
   line-height: 100px;
