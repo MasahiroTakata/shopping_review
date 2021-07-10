@@ -13,12 +13,11 @@ class ShoppingController extends Controller
 {
     // 商品を一覧表示する
     public function index (){
-        $categorys = Category::all(); // 全件抽出
         $products = Product::paginate(12); // 1ページに12件表示させる
 
         return view ('index', [
-            'categorys' => $categorys,
             'products' => $products,
+            'submenu' => Category::all(),
         ]);
     }
 
@@ -31,6 +30,7 @@ class ShoppingController extends Controller
             'productDetail' => $productDetail,
             'categoryProducts' => $categoryProducts,
             'productComments' => $productComments,
+            'submenu' => Category::all(),
         ]);
     }
 

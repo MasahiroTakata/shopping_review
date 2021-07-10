@@ -24,6 +24,23 @@ header{
   justify-content: space-between;
 }
 
+.container{
+  width: 91vw;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: auto; /* スクロール */
+  display: flex;
+}
+
+.subMenu{
+  width: 20vw;
+}
+
+.content{
+  width: 80vw;
+}
+
 .no_user{
   padding-top: 30px;
   padding-right: 100px;
@@ -132,14 +149,6 @@ header{
 
 .a_login:hover::after{
   width: 100%;
-}
-
-.container{
-  width: 72.9vw;
-  background-color: white;
-  margin-left: auto;
-  margin-right: auto;
-  overflow: auto; /* スクロール */
 }
 
 nav{

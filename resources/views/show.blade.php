@@ -6,6 +6,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script type="text/javascript" src="{{ asset('js/show.js') }}"></script>
 @section('content')
+@include('submenu', ['categorys' => $submenu])
 <form action="{{ url('/shopping/userSelect') }}" method="post">
 {{ csrf_field() }}
   <div class = "detail_box">
