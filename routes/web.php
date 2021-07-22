@@ -15,6 +15,7 @@ use Illuminate\Http\Request; // POST送信する際に必要
 
 Route::get('/', 'ShoppingController@index'); // 商品一覧（初期画面）
 Route::get('/shopping/{id}', 'ShoppingController@show'); // 商品詳細
+Route::get('/shopping/category/{id}', 'ShoppingController@categoryList'); // カテゴリー詳細
 Route::get('/search', 'SearchController@index'); // 検索機能
 Route::get('/custmers/register', 'CustmerController@index'); // カスタマー新規登録
 

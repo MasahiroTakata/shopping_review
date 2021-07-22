@@ -37,6 +37,17 @@ header{
   width: 20vw;
 }
 
+.search-category{
+  text-align: center;
+  margin-top: 1.6vw;
+}
+
+.subMenu li{
+  cursor: pointer;
+  text-align: center;
+  margin-top: 1.2vw;
+}
+
 .content{
   width: 80vw;
 }
