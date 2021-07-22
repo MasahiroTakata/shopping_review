@@ -34,6 +34,15 @@ class ShoppingController extends Controller
         ]);
     }
 
+    // カテゴリー毎の商品一覧を表示(引数はカテゴリーID)
+    public function categoryList ($id){
+        $products = Product::where('category_id', $id)->paginate(12); // 選択したカテゴリーの商品を取得する
+        return view('categoryProduct', [
+            'products' => $products,
+            'submenu' => Category::all(),
+        ]);
+    }
+
     // カートに保存（一覧に戻って、画面上にカートに保存した旨を伝える）
     public function userSelect (Request $request){
         $action = $request->get('action', 'カートに入れる');
@@ -62,7 +71,8 @@ class ShoppingController extends Controller
         if (!isset($carts["cart"])){ // カートの中身が無い場合
             return view('cart', [
                     'carts' => $array,
-                    'sum' => $sum
+                    'sum' => $sum,
+                    'submenu' => Category::all()
                 ]
             );
         }
@@ -86,7 +96,8 @@ class ShoppingController extends Controller
 
         return view('cart', [
             'carts' => $array,
-            'sum' => $sum
+            'sum' => $sum,
+            'submenu' => Category::all()
             ]
         );
     }

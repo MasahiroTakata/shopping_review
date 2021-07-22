@@ -4,6 +4,8 @@
   <link rel="stylesheet" href="{{ asset('css/cart.css') }}">
 @endsection
 @section('content')
+@include('submenu', ['categorys' => $submenu])
+<div class = 'content'>
   @csrf
   {{ csrf_field() }}
   <h2 class="shoppingCart">カートの中身</h2>
@@ -45,5 +47,6 @@
         </tr>
     </tbody>
   </table>
-    @endif
+      @endif
+</div>
 @endsection

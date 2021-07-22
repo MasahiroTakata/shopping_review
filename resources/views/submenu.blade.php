@@ -1,12 +1,14 @@
 <div class = 'subMenu'>
-  <div>
+  <div class="search-category">
     カテゴリーから探す
   </div>
   <div>
     @if(isset ($categorys))
       <ul>
       @foreach ($categorys as $category)
-        <li>{{ $category->name }}</li>
+        <li>
+          <a href="{{ action('ShoppingController@categoryList', $category->id) }}">{{ $category->name }}</a>
+        </li>
       @endforeach
       </ul>
     @endif
