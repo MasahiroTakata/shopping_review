@@ -37,7 +37,19 @@ class ShoppingController extends Controller
     // カテゴリー毎の商品一覧を表示(引数はカテゴリーID)
     public function categoryList ($id){
         $products = Product::where('category_id', $id)->paginate(12); // 選択したカテゴリーの商品を取得する
-        return view('categoryProduct', [
+        return view('index', [
+            'products' => $products,
+            'submenu' => Category::all(),
+        ]);
+    }
+
+    // 新商品を一覧表示
+    public function newProductsList (){
+        $today = date("Y-m-d H:i:s");
+        $oneWeekBefore = date("Y-m-d",strtotime("-1 week"));
+        $products = Product::whereBetween('updated_at', [$oneWeekBefore, $today])->paginate(12);
+
+        return view ('index', [
             'products' => $products,
             'submenu' => Category::all(),
         ]);

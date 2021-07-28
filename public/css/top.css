@@ -43,7 +43,6 @@ header{
 }
 
 .subMenu li{
-  cursor: pointer;
   text-align: center;
   margin-top: 1.2vw;
 }
@@ -108,7 +107,7 @@ header{
 .a_title{
   text-decoration: none;
   color: white;
-  padding-left: 10px;
+  margin-left: 10px;
   font-size: 20px;
   position: relative;
   display: inline-block;
@@ -139,7 +138,7 @@ header{
 .a_login{
   text-decoration: none;
   color: white;
-  padding-left: 10px;
+  margin-left: 10px;
   font-size: 16px;
   position: relative;
   display: inline-block;

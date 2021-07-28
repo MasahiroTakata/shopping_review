@@ -3,14 +3,17 @@
     カテゴリーから探す
   </div>
   <div>
+    <ul>
     @if(isset ($categorys))
-      <ul>
       @foreach ($categorys as $category)
         <li>
           <a href="{{ action('ShoppingController@categoryList', $category->id) }}">{{ $category->name }}</a>
         </li>
       @endforeach
-      </ul>
     @endif
+      <li>
+        <a href="{{ action('ShoppingController@newProductsList') }}">新商品！</a>
+      </li>
+    </ul>
   </div>
 </div>
