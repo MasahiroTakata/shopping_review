@@ -35,16 +35,53 @@ header{
 
 .subMenu{
   width: 20vw;
+  border-right: 1px solid #dedede;
 }
 
 .search-category{
   text-align: center;
-  margin-top: 1.6vw;
 }
 
-.subMenu li{
+.categorys{
+  padding: 20px;
+  border-bottom: 1px solid #dedede;
+  margin: 0 1.2vw;
+}
+
+.categorys li{
   text-align: center;
   margin-top: 1.2vw;
+}
+
+.categorys li a{
+  text-decoration: none;
+  color: #444444;
+  transition: .3s;
+}
+
+.categorys li a:hover{
+  opacity: 0.5;
+}
+
+.newInfos{
+  padding: 20px;
+  margin: 0 1.2vw;
+  border-bottom: 1px solid #dedede;
+}
+
+.newInfos li{
+  text-align: center;
+  margin-top: 1.2vw;
+}
+
+.newInfos li a{
+  text-decoration: none;
+  color: #444444;
+  transition: .3s;
+}
+
+.newInfos li a:hover{
+  opacity: 0.5;
 }
 
 .content{
@@ -63,12 +100,23 @@ header{
 }
 
 .form-keyword{
+	display: flex;
+	width: 20vw;
   padding-left: 30px;
+}
+
+.form-input{
+	border: none;
+	width: 100%;
+}
+
+.form-button{
+	background-color: white;
+	border: none;
 }
 
 #keywordBox{
   border:none;
-  border-radius:3px;
   box-shadow: 1px 1px 1px #C0C0C0 inset;
   padding: 2px 8px;
 }

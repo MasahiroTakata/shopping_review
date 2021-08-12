@@ -22,8 +22,8 @@
       <a href="{{ action('ShoppingController@index') }}" class="a_title">Shopping Review</a>
       <form action="{{ url('/search') }}" method="get" name="keyword" id="keyword" class="form-keyword">
         {{ csrf_field() }}
-        <input type="text" name="keyword" value="" id="keywordBox" placeholder="キーワードを入力">
-        <input type="submit" id = "searchingBtn" value="検索">
+        <input type="search" class="form-input" name="keyword" value="" id="keywordBox" placeholder="キーワードを入力">
+        <button class="form-button" id = "searchingBtn"><img src="images/3331255.png" width="15px" height="15px"></button>
       </form>
     </div>
     @if(session()->has('custmerName'))
