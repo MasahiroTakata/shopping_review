@@ -21,4 +21,9 @@
   {{ $products->links() }}
 </div>
 @endif
+@if (isset ($message))
+<div class = 'content'>
+  <p>{{$message}}</p>
+</div>
+@endif
 @endsection

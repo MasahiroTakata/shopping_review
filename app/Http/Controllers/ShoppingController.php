@@ -48,11 +48,19 @@ class ShoppingController extends Controller
         $today = date("Y-m-d H:i:s");
         $oneWeekBefore = date("Y-m-d",strtotime("-1 week"));
         $products = Product::whereBetween('updated_at', [$oneWeekBefore, $today])->paginate(12);
+        if($products -> count() == 0){
+            $message = "現在、新商品はございません。";
 
-        return view ('index', [
-            'products' => $products,
-            'submenu' => Category::all(),
-        ]);
+            return view ('index', [
+                'submenu' => Category::all(),
+                'message' => $message
+            ]);
+        } else{
+            return view ('index', [
+                'products' => $products,
+                'submenu' => Category::all(),
+            ]);
+        }
     }
 
     // カートに保存（一覧に戻って、画面上にカートに保存した旨を伝える）
