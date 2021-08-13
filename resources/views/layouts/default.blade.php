@@ -6,14 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!--csrfの対策処理をしないと、エラーが表示される-->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>@yield('title')</title>
-    @if(app('env') == 'production')
-      <link rel="stylesheet" href="{{ secure_asset('css/reset.css') }}">
-      <link rel="stylesheet" href="{{ secure_asset('css/top.css') }}">
-    @else
+    @if(app('env') == 'local')
       <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
       <link rel="stylesheet" href="{{ asset('css/top.css') }}">
+    @else
+      <link rel="stylesheet" href="{{ secure_asset('css/reset.css') }}">
+      <link rel="stylesheet" href="{{ secure_asset('css/top.css') }}">
     @endif
     @yield('css')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
