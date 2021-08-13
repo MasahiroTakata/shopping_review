@@ -1,7 +1,11 @@
 @extends('layouts.default')
 @section('title', 'Shopping Review')
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/imagehover.min.css') }}">
+@if(app('env') == 'local')
+  <link rel="stylesheet" href="{{ asset('css/imagehover.min.css') }}">
+@else
+  <link rel="stylesheet" href="{{ secure_asset('css/imagehover.min.css') }}">
+@endif
 @endsection
 @section('content')
 @include('submenu', ['categorys' => $submenu])
