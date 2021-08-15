@@ -100,9 +100,10 @@ header{
 }
 
 .form-keyword{
-	display: flex;
-	width: 20vw;
-  padding-left: 30px;
+  position:relative;
+  max-width:300px;
+  margin-bottom:20px;
+  margin-left: 25px;
 }
 
 .form-input{
@@ -116,13 +117,35 @@ header{
 }
 
 #keywordBox{
-  border:none;
-  box-shadow: 1px 1px 1px #C0C0C0 inset;
+  height:30px;
+  width: 220px;
   padding: 2px 8px;
+  left: 0;
+  top: 0; 
+  border-radius: 2px;
+  outline: 0; /* 検索ボックスクリック時の青い枠を表示させない */
+  position:absolute;
+  box-shadow: 1px 1px 1px #C0C0C0 inset;
 }
 
 #keywordBox:focus{
   outline: none;
+}
+
+#searchingBtn{
+  font-size:20px;/*アイコンサイズ*/
+  border:none;
+  position:absolute; 
+  left:202px;/*アイコン左右の位置調整*/
+  top:4px;
+  background:none;
+  color:#666;
+  border:none;
+  cursor: pointer;
+}
+
+#searchingBtn:hover{
+  color:#00BB00;
 }
 
 .menu_user{
