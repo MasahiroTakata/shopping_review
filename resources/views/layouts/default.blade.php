@@ -7,6 +7,7 @@
     <!--csrfの対策処理をしないと、エラーが表示される-->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     @if(app('env') == 'local')
       <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
       <link rel="stylesheet" href="{{ asset('css/top.css') }}">
@@ -26,8 +27,8 @@
       <a href="{{ action('ShoppingController@index') }}" class="a_title">Shopping Review</a>
       <form action="{{ url('/search') }}" method="get" name="keyword" id="keyword" class="form-keyword">
         {{ csrf_field() }}
-        <input type="search" class="form-input" name="keyword" value="" id="keywordBox" placeholder="キーワードを入力">
-        <button class="form-button" id = "searchingBtn"><img src="images/3331255.png" width="15px" height="15px"></button>
+        <input class="form-input" name="keyword" value="" id="keywordBox" placeholder="キーワードを入力">
+        <button type = "submit" id = "searchingBtn"><i class="fa fa-search"></i></button>
       </form>
     </div>
     @if(session()->has('custmerName'))
