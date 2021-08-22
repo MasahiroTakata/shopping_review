@@ -25,7 +25,8 @@
   <div class = "menu">
     <div class = "menu_title">
       <a href="{{ action('ShoppingController@index') }}" class="a_title">Shopping Review</a>
-      <form action="{{ url('/search') }}" method="get" name="keyword" id="keyword" class="form-keyword">
+      <form action="{{ url('/search') }}" method="get" id="keyword" class="form-keyword">
+        @csrf
         {{ csrf_field() }}
         <input class="form-input" name="keyword" value="" id="keywordBox" placeholder="キーワードを入力">
         <button type = "submit" id = "searchingBtn"><i class="fa fa-search"></i></button>
@@ -48,7 +49,7 @@
 @yield('content')
 </div>
 <footer>
-<small>copyrights &copy; 2020 Shopping_review All rights Reserved.</small>
+<small>copyrights &copy; 2021 Shopping_review All rights Reserved.</small>
 </footer>
 </body>
 </html>
