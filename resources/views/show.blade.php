@@ -7,7 +7,9 @@
   <script type="text/javascript" src="{{ asset('js/show.js') }}"></script>
 @section('content')
 @include('submenu', ['categorys' => $submenu])
+<div class = 'content'>
 <form action="{{ url('/shopping/userSelect') }}" method="post">
+@csrf
 {{ csrf_field() }}
   <div class = "detail_box">
     <img src = "{{ $productDetail->image }}" height = "300px" width = "300px">
@@ -57,4 +59,5 @@
     @endforeach
   </div>
 </form>
+</div>
 @endsection
