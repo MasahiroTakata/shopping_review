@@ -1,5 +1,7 @@
 .errorMessages{
   text-align: center;
+  color: red;
+  margin: 2vw auto;
 }
 
 table{
@@ -30,10 +32,12 @@ table td{
   outline: none;
 }
 
+.userLoginForm{
+  width: 80vw;
+}
+
 .btnSpace{
-  margin-top: 30px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 6vw auto;
   width: 100px;
 }
 

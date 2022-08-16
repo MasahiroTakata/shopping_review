@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="{{ asset('css/createReview.css') }}">
 @endsection
 @section('content')
+@include('submenu', ['categorys' => $submenu ?? ''])
 @if ($errors->any())
   <ul class = "errorMessages">
     @foreach ($errors->all() as $error)

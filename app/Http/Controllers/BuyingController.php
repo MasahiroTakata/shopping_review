@@ -7,6 +7,7 @@ use App\Buying;
 use App\Product;
 use App\Order;
 use App\Custmer;
+use App\Category;
 
 class BuyingController extends Controller
 {
@@ -17,7 +18,9 @@ class BuyingController extends Controller
 
         // 購入手続き画面に遷移する前に、セッションにユーザ情報があるか確認
         if(!isset($custmerCarts['custmerId'])){
-            return view('login');
+            return view('login', [
+                'submenu' => Category::all(),
+            ]);
         }
 
         foreach ($custmerCarts['cart'] as $key => $value){
@@ -43,6 +46,7 @@ class BuyingController extends Controller
             'carts' => $carts,
             'loginuser' => $custmerDetail,
             'sum' => $sum,
+            'submenu' => Category::all(),
         ]);
     }
 

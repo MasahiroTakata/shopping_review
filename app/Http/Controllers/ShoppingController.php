@@ -34,7 +34,7 @@ class ShoppingController extends Controller
         ]);
     }
 
-    // カテゴリー毎の商品一覧を表示(引数はカテゴリーID)
+    // カテゴリー毎の商品一覧を表示(引数はカテゴリーID)
     public function categoryList ($id){
         $products = Product::where('category_id', $id)->paginate(12); // 選択したカテゴリーの商品を取得する
         return view('index', [

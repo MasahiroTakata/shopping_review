@@ -4,6 +4,8 @@
   <link rel="stylesheet" href="{{ asset('css/register-login.css') }}">
 @endsection
 @section('content')
+@include('submenu', ['categorys' => $submenu ?? ''])
+<div class="userRegisterForm">
 @if ($errors->any())
   <ul class = "errorMessages">
     @foreach ($errors->all() as $error)
@@ -11,7 +13,7 @@
     @endforeach
   </ul>
 @endif
-<form action="{{ url('/custmers/confirm') }}" method="POST">
+<form action="{{ url('/custmers/confirm') }}" method="POST" class="register-form">
   @csrf
   <div class="form-group">
     <table>
@@ -41,4 +43,5 @@
     <input type="submit" class="btn-success" value="確認へ">
   </div>
 </form>
+</div>
 @endsection
