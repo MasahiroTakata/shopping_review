@@ -4,6 +4,8 @@
   <link rel="stylesheet" href="{{ asset('css/login.css') }}">
 @endsection
 @section('content')
+@include('submenu', ['categorys' => $submenu ?? ''])
+<div class="userLoginForm">
 @if(count($errors) >0)
 <ul class = "errorMessages">
   @foreach($errors->all() as $error)
@@ -11,7 +13,7 @@
   @endforeach
 </ul>
 @endif
-<form action="{{ url('/custmers/logincomplete') }}" method="post">
+<form action="{{ url('/custmers/logincomplete') }}" method="post" class="login-form">
   {{ csrf_field() }}
   <div class="form-group">
     <table>
@@ -29,4 +31,5 @@
     <input type="submit" class="btn-success" value="ログイン">
   </div>
 </form>
+</div>
 @endsection

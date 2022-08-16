@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="{{ asset('css/buyingConfirm.css') }}">
 @endsection
 @section('content')
+@include('submenu', ['categorys' => $submenu ?? ''])
   {{ csrf_field() }}
   @if (isset ($loginuser))
   <div class = "userInfo">

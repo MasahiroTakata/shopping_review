@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\Custmer;
 use App\Comment;
+use App\Category;
+
 use IlluminateDatabaseEloquentModel;
 
 class ReviewController extends Controller
@@ -15,6 +17,7 @@ class ReviewController extends Controller
 
         return view('createReview', [
             'productDetail' => $productDetail,
+            'submenu' => Category::all(),
         ]);
     }
 

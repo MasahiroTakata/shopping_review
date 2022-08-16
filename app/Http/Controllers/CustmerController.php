@@ -4,12 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Custmer;
+use App\Category;
 use IlluminateDatabaseEloquentModel;
 
 class CustmerController extends Controller
 {
     public function index (){ // 会員登録画面の表示
-        return view('register');
+        return view ('register', [
+            'submenu' => Category::all(),
+        ]);
     }
 
     // 登録時のバリデーション
@@ -54,7 +57,9 @@ class CustmerController extends Controller
     }
 
     public function login (){
-        return view('login');
+        return view('login', [
+            'submenu' => Category::all(),
+        ]);
     }
 
     public function logincomplete (Request $request){
