@@ -8,13 +8,18 @@ use App\Category; // この記述を書くことで、クラス内では「Categ
 use App\Product;
 use App\Comment;
 use App\Custmer;
+use App\Service\ProductService;
 
 class ShoppingController extends Controller
 {
+    protected $productService;
+    public function __construct(ProductService $productService)
+    {
+        $this->productService = $productService;
+    }
     // 商品を一覧表示する
     public function index (){
-        $products = Product::paginate(12); // 1ページに12件表示させる
-
+        $products = $this->productService->index(); // 1ページに12件表示させる
         return view ('index', [
             'products' => $products,
             'submenu' => Category::all(),
